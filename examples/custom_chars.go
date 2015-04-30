@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/Lupino/LiquidCrystal"
 	"github.com/hybridgroup/gobot"
 	"github.com/hybridgroup/gobot/platforms/firmata"
@@ -65,10 +64,7 @@ func displayKeyCodes(lcd *LiquidCrystal.LiquidCrystalDriver) {
 
 	for {
 		lcd.Clear()
-		lcd.Print("Codes 0x")
-		lcd.Print(fmt.Sprintf("%02x", i))
-		lcd.Print("-0x")
-		lcd.Print(fmt.Sprintf("%02x", i+16))
+		lcd.Printf("Codes 0x%02x-0x%02x", i, i+16)
 		lcd.SetCursor(0, 1)
 
 		for j := 0; j < 16; j++ {
