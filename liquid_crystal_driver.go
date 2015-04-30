@@ -1,6 +1,7 @@
 package LiquidCrystal
 
 import (
+	"fmt"
 	"github.com/hybridgroup/gobot"
 	"github.com/hybridgroup/gobot/platforms/i2c"
 	"time"
@@ -335,4 +336,8 @@ func (h *LiquidCrystalDriver) Print(str string) {
 	for _, char := range charmap {
 		h.Write(char)
 	}
+}
+
+func (h *LiquidCrystalDriver) Printf(str string, v ...interface{}) {
+	h.Print(fmt.Sprintf(str, v...))
 }
